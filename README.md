@@ -4,7 +4,7 @@
 
 **非常遗憾，由于一些原因，FullTclash已经暂时闭源，从3.4.3开始不再提供源代码文件。**
 
-目前暂时提供Windows系统打包文件，Linux平台请加群咨询。
+目前提供Windows系统和Ubuntu(Linux)发行版打包文件，其他平台请加群咨询。
 
 # 最近更新(3.4.3)
 
@@ -89,14 +89,14 @@ Linux:
 pip3 install -r requirements.txt
 ```
 
-## 拉取源码
+## 拉取文件
 
 方法1：直接下载（不会有人不知道在哪下吧？）
 
 方法2：使用git（Linux推荐，方便更新），首先安装git，然后拉取仓库。以下指令为 Ubuntu 发行版作示例，Windows自行解决。
 
 ```
-apt install -y git && git clone https://github.com/AirportR/FullTclash.git && cd FullTclash
+apt install -y git && git clone https://github.com/AirportR/FullTclash-Closed.git && cd FullTclash
 ```
 
 此方法在中国大陆可能需要代理加速，请自行解决。
@@ -145,14 +145,31 @@ chmod +x ./resources/clash-linux-amd64
   ```
   #bot通讯代理
   bot:
-  proxy: 127.0.0.1:7890 #替换成自己的代理地址和端口
+   proxy: 127.0.0.1:7890 #替换成自己的代理地址和端口
   # 获取订阅时使用代理（可选）
   proxy: 127.0.0.1:7890 #替换成自己的代理地址和端口,注意，此配置与上面的独立分开。
   ```
+- 更改clash核心
 
+  如果您想在非Windows平台运行此程序，请在配置文件中指定对应平台的clash可执行文件：
+  ```yaml
+  # 以Ubuntu为例:
+  clash:
+    path: ./resources/clash-linux-amd64
+    workpath: ./clash
+  ```
 ## 开始启动
 
+Windows10:
 在项目目录下直接点击可执行文件即可
+
+Ubuntu: 
+```shell
+chmod +x ./FullTclash && ./FullTclash
+```
+
+其他发行版自行尝试，如有问题请加群咨询: https://t.me/FullTClash
+
 
 
 等待初始化操作，出现“程序已启动!”字样就说明在运行了.
@@ -181,7 +198,7 @@ chmod +x ./resources/clash-linux-amd64
 
 - [流媒体解锁思路](https://github.com/lmc999/RegionRestrictionCheck)
 
-- 以下这些上游项目:
+- 使用了如下相关项目:
   
   - [Clash](https://github.com/Dreamacro/clash)
   
